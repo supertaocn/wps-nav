@@ -1,155 +1,575 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数据报送导航</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            width: 100%;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .header h1 {
-            color: #fff;
-            font-size: 2.2em;
-            font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            margin-bottom: 8px;
-        }
-        .header p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1em;
-        }
-        .cards {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 28px 32px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-        }
-        .card-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .card-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6em;
-            flex-shrink: 0;
-        }
-        .card:nth-child(1) .card-icon { background: #FFF3E0; }
-        .card:nth-child(2) .card-icon { background: #E8F5E9; }
-        .card:nth-child(3) .card-icon { background: #E3F2FD; }
-        .card-info h2 {
-            font-size: 1.1em;
-            color: #1a1a2e;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        .card-info p {
-            font-size: 0.85em;
-            color: #888;
-        }
-        .card-arrow {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
-            font-size: 1.2em;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-        .card:hover .card-arrow {
-            background: #667eea;
-            color: #fff;
-        }
-        @media (max-width: 600px) {
-            .header h1 { font-size: 1.6em; }
-            .card { padding: 20px; }
-            .card-icon { width: 44px; height: 44px; font-size: 1.3em; }
-            .card-info h2 { font-size: 1em; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税务技能大赛题库练习</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #1e40af;
+  --primary-light: #3b82f6;
+  --bg: #f0f4ff;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --correct: #16a34a;
+  --correct-bg: #dcfce7;
+  --wrong: #dc2626;
+  --wrong-bg: #fee2e2;
+  --border: #e2e8f0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  padding: 20px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(30,64,175,0.3);
+}
+.header-inner { max-width: 800px; margin: 0 auto; }
+.header h1 { font-size: 1.3em; font-weight: 700; }
+.header p { font-size: 0.85em; opacity: 0.85; margin-top: 4px; }
+
+/* Tabs */
+.tabs {
+  background: white;
+  padding: 0 16px;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 72px;
+  z-index: 99;
+}
+.tab {
+  padding: 10px 14px;
+  font-size: 0.88em;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+}
+.tab:hover { color: var(--primary); }
+.tab.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+.tab .badge {
+  display: inline-block;
+  background: var(--bg);
+  color: var(--text-muted);
+  border-radius: 10px;
+  padding: 1px 6px;
+  font-size: 0.75em;
+  margin-left: 4px;
+}
+.tab.active .badge { background: var(--primary); color: white; }
+
+/* Progress bar */
+.progress-bar {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+.progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+.progress-text { min-width: 80px; text-align: right; }
+
+/* Stats */
+.stats-bar {
+  background: white;
+  padding: 8px 16px;
+  display: flex;
+  gap: 16px;
+  font-size: 0.82em;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+}
+.stat { display: flex; align-items: center; gap: 4px; }
+.stat strong { color: var(--primary); font-size: 1.1em; }
+
+/* Question */
+.question-area {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 16px 100px;
+}
+.question-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin-bottom: 16px;
+}
+.question-meta {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.tag {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+.tag-type { background: #dbeafe; color: var(--primary); }
+.tag-bank { background: #f1f5f9; color: var(--text-muted); }
+.tag-num { background: #fef3c7; color: #92400e; margin-left: auto; }
+.question-text {
+  font-size: 1.05em;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-wrap;
+  margin-bottom: 20px;
+}
+
+/* Options */
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1.6;
+}
+.option:hover:not(.disabled) { border-color: var(--primary-light); background: #eff6ff; }
+.option.correct { border-color: var(--correct); background: var(--correct-bg); }
+.option.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+.option.disabled { cursor: default; }
+.opt-letter {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85em;
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+  transition: all 0.2s;
+}
+.option.correct .opt-letter { background: var(--correct); color: white; border-color: var(--correct); }
+.option.wrong .opt-letter { background: var(--wrong); color: white; border-color: var(--wrong); }
+.opt-text { font-size: 0.95em; line-height: 1.6; flex: 1; white-space: pre-wrap; }
+
+/* Answer */
+.answer-box {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  display: none;
+}
+.answer-box.show { display: block; }
+.answer-box.correct-ans { background: var(--correct-bg); border-left: 4px solid var(--correct); }
+.answer-box.wrong-ans { background: var(--wrong-bg); border-left: 4px solid var(--wrong); }
+.answer-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 0.9em;
+}
+.answer-title.correct { color: var(--correct); }
+.answer-title.wrong { color: var(--wrong); }
+.analysis {
+  font-size: 0.88em;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-top: 8px;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+}
+.analysis-title { font-weight: 600; color: var(--text); margin-bottom: 4px; }
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+.btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-light); transform: translateY(-1px); }
+.btn-outline { background: white; color: var(--primary); border: 2px solid var(--primary); }
+.btn-outline:hover { background: #eff6ff; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 60px;
+  color: var(--text-muted);
+  font-size: 1.1em;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Result summary */
+.summary {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.summary h2 { color: var(--primary); margin-bottom: 20px; }
+.summary-stats { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
+.summary-stat { text-align: center; }
+.summary-stat .num { font-size: 2.2em; font-weight: 700; }
+.summary-stat .label { font-size: 0.85em; color: var(--text-muted); margin-top: 4px; }
+.summary-rate { font-size: 3em; font-weight: 800; color: var(--primary); margin: 16px 0; }
+.summary-msg { color: var(--text-muted); margin-bottom: 24px; }
+
+/* Home */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+.home-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 2px solid transparent;
+}
+.home-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-color: var(--primary-light); }
+.home-card h3 { color: var(--primary); font-size: 1em; margin-bottom: 8px; }
+.home-card .count { font-size: 0.85em; color: var(--text-muted); }
+.home-card .desc { font-size: 0.8em; color: var(--text-muted); margin-top: 6px; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>数据报送导航</h1>
-            <p>快速访问各数据报送入口</p>
-        </div>
-        <div class="cards">
-            <a href="https://f.wps.cn/g/t5pmUZvi/" target="_blank" class="card">
-                <div class="card-left">
-                    <div class="card-icon">📋</div>
-                    <div class="card-info">
-                        <h2>预测数据报送</h2>
-                        <p>点击进入 WPS 表单填报</p>
-                    </div>
-                </div>
-                <div class="card-arrow">→</div>
-            </a>
-            <a href="https://web.wps.cn/wo/sl/v1aE99l" target="_blank" class="card">
-                <div class="card-left">
-                    <div class="card-icon">📊</div>
-                    <div class="card-info">
-                        <h2>明细表查询</h2>
-                        <p>点击进入金山文档查询</p>
-                    </div>
-                </div>
-                <div class="card-arrow">→</div>
-            </a>
-            <a href="https://web.wps.cn/wo/sl/v14XzDe2" target="_blank" class="card">
-                <div class="card-left">
-                    <div class="card-icon">📈</div>
-                    <div class="card-info">
-                        <h2>统计表查询</h2>
-                        <p>点击进入金山文档查询</p>
-                    </div>
-                </div>
-                <div class="card-arrow">→</div>
-            </a>
-        </div>
+
+<div class="header">
+  <div class="header-inner">
+    <h1>📚 税务技能大赛题库练习</h1>
+    <p>共 <span id="totalCount">--</span> 题 · 点击分类开始练习</p>
+  </div>
+</div>
+
+<div class="tabs" id="tabs" style="display:none"></div>
+<div class="progress-bar" id="progressBar" style="display:none">
+  <span id="progressLabel">进度</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <span class="progress-text" id="progressText">0/0</span>
+</div>
+<div class="stats-bar" id="statsBar" style="display:none">
+  <div class="stat">✅ 正确 <strong id="correctCount">0</strong></div>
+  <div class="stat">❌ 错误 <strong id="wrongCount">0</strong></div>
+  <div class="stat" style="margin-left:auto">正确率 <strong id="accuracy">--%</strong></div>
+</div>
+
+<div id="app">
+  <div class="loading"><div class="spinner"></div>加载题库中...</div>
+</div>
+
+<script>
+const STATE_KEY = 'tax_quiz_state_v1';
+
+let questions = {};
+let currentBank = null;
+let currentIndex = 0;
+let correctCount = 0;
+let wrongCount = 0;
+let answered = false;
+let sessionCorrect = 0;
+let sessionWrong = 0;
+let sessionTotal = 0;
+
+function el(id) { return document.getElementById(id); }
+
+async function loadQuestions() {
+  try {
+    const r = await fetch('questions.json?t=' + Date.now());
+    questions = await r.json();
+    const total = Object.values(questions).reduce((s, a) => s + a.length, 0);
+    el('totalCount').textContent = total;
+    showHome();
+  } catch(e) {
+    el('app').innerHTML = `<div class="loading">加载失败: ${e.message}<br><button class="btn btn-primary" onclick="loadQuestions()">重试</button></div>`;
+  }
+}
+
+function showHome() {
+  let html = '<div class="home-grid">';
+  const banks = [
+    ['税务公共知识', '250题', '税务公共知识考试核心内容'],
+    ['强基培训', '1017题', '强基必修培训内容'],
+    ['征收管理', '607题', '税费征收管理实务'],
+    ['纳税服务', '405题', '纳税服务与便利化'],
+    ['税务稽查', '406题', '税务稽查实务与案例'],
+    ['税费风险管理/税收大数据', '26题', '税费风险管理专题'],
+    ['新时代税务事业', '27题', '习近平税收工作论述'],
+  ];
+  for (const [name, count, desc] of banks) {
+    const qlist = questions[name] || [];
+    if (qlist.length > 0) {
+      html += `<div class="home-card" onclick="startQuiz('${name}')">
+        <h3>📖 ${name}</h3>
+        <div class="count">${qlist.length} 题</div>
+        <div class="desc">${desc}</div>
+      </div>`;
+    }
+  }
+  html += '</div>';
+  el('app').innerHTML = html;
+  el('tabs').style.display = 'none';
+  el('progressBar').style.display = 'none';
+  el('statsBar').style.display = 'none';
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startQuiz(bank) {
+  currentBank = bank;
+  const list = questions[bank] || [];
+  if (list.length === 0) { alert('该分类暂无题目'); return; }
+  
+  // shuffle
+  questions[bank] = shuffle(list);
+  currentIndex = 0;
+  correctCount = 0;
+  wrongCount = 0;
+  sessionCorrect = 0;
+  sessionWrong = 0;
+  sessionTotal = list.length;
+  
+  showTabs(bank);
+  el('progressBar').style.display = 'flex';
+  el('statsBar').style.display = 'flex';
+  showQuestion();
+}
+
+function showTabs(activeBank) {
+  let html = `<button class="tab ${!activeBank ? 'active' : ''}" onclick="showHome()">🏠 首页</button>`;
+  for (const name of Object.keys(questions)) {
+    const active = name === activeBank ? ' active' : '';
+    html += `<button class="tab${active}" onclick="startQuiz('${name}')">${name}<span class="badge">${questions[name].length}</span></button>`;
+  }
+  el('tabs').innerHTML = html;
+  el('tabs').style.display = 'flex';
+}
+
+function updateProgress() {
+  const list = questions[currentBank];
+  if (!list) return;
+  const total = list.length;
+  const pct = total > 0 ? Math.round((currentIndex / total) * 100) : 0;
+  el('progressFill').style.width = pct + '%';
+  el('progressText').textContent = `${currentIndex}/${total}`;
+  el('correctCount').textContent = sessionCorrect;
+  el('wrongCount').textContent = sessionWrong;
+  const acc = currentIndex > 0 ? Math.round((sessionCorrect / currentIndex) * 100) : 0;
+  el('accuracy').textContent = acc + '%';
+}
+
+function showQuestion() {
+  const list = questions[currentBank];
+  if (!list || currentIndex >= list.length) {
+    showSummary();
+    return;
+  }
+  
+  const q = list[currentIndex];
+  answered = false;
+  updateProgress();
+  
+  const optionsHtml = q.options.map(opt => `
+    <div class="option" data-letter="${opt.letter}" onclick="selectOption('${opt.letter}')">
+      <div class="opt-letter">${opt.letter}</div>
+      <div class="opt-text">${opt.text}</div>
     </div>
+  `).join('');
+  
+  el('app').innerHTML = `
+    <div class="question-area">
+      <div class="question-card">
+        <div class="question-meta">
+          <span class="tag tag-type">${q.type}</span>
+          <span class="tag tag-bank">${q.bank}</span>
+          <span class="tag tag-num">第 ${currentIndex + 1} / ${list.length} 题</span>
+        </div>
+        <div class="question-text">${q.question}</div>
+        <div class="options" id="options">${optionsHtml}</div>
+        <div class="answer-box" id="answerBox"></div>
+        <div class="btn-row" id="btnRow">
+          <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>下一题 →</button>
+          <button class="btn btn-outline" onclick="showAnswer()">查看答案</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function selectOption(letter) {
+  if (answered) return;
+  answered = true;
+  
+  const list = questions[currentBank];
+  const q = list[currentIndex];
+  const isCorrect = q.answer.includes(letter);
+  
+  if (isCorrect) { sessionCorrect++; } 
+  else { sessionWrong++; }
+  
+  // Highlight options
+  document.querySelectorAll('.option').forEach(el => {
+    el.classList.add('disabled');
+    const l = el.dataset.letter;
+    if (q.answer.includes(l)) el.classList.add('correct');
+    else if (l === letter) el.classList.add('wrong');
+  });
+  
+  // Show answer box
+  const box = el('answerBox');
+  box.className = 'answer-box show ' + (isCorrect ? 'correct-ans' : 'wrong-ans');
+  box.innerHTML = `
+    <div class="answer-title ${isCorrect ? 'correct' : 'wrong'}">
+      ${isCorrect ? '✅ 回答正确！' : '❌ 回答错误'}
+    </div>
+    ${!isCorrect ? `<div style="font-size:0.88em;color:var(--text-muted)">正确答案：<strong>${q.answer.join('、')}</strong></div>` : ''}
+    ${q.analysis ? `<div class="analysis"><div class="analysis-title">📝 解析</div>${q.analysis}</div>` : ''}
+  `;
+  
+  el('nextBtn').disabled = false;
+  updateProgress();
+}
+
+function showAnswer() {
+  if (answered) return;
+  const list = questions[currentBank];
+  const q = list[currentIndex];
+  answered = true;
+  
+  document.querySelectorAll('.option').forEach(el => {
+    el.classList.add('disabled');
+    if (q.answer.includes(el.dataset.letter)) el.classList.add('correct');
+  });
+  
+  const box = el('answerBox');
+  box.className = 'answer-box show correct-ans';
+  box.innerHTML = `
+    <div class="answer-title correct">答案：${q.answer.join('、')}</div>
+    ${q.analysis ? `<div class="analysis"><div class="analysis-title">📝 解析</div>${q.analysis}</div>` : ''}
+  `;
+  el('nextBtn').disabled = false;
+  updateProgress();
+}
+
+function nextQuestion() {
+  currentIndex++;
+  showQuestion();
+}
+
+function showSummary() {
+  const list = questions[currentBank];
+  const rate = sessionTotal > 0 ? Math.round((sessionCorrect / sessionTotal) * 100) : 0;
+  const msgs = [
+    '继续加油！💪',
+    '还需多练习 📚',
+    '不错！继续保持 🔥',
+    '很棒！🎉',
+    '满分！太厉害了！🏆'
+  ];
+  let msgIdx = rate < 40 ? 0 : rate < 60 ? 1 : rate < 80 ? 2 : rate < 95 ? 3 : 4;
+  
+  el('app').innerHTML = `
+    <div class="question-area">
+      <div class="summary">
+        <h2>练习完成！🎉</h2>
+        <div class="summary-rate">${rate}%</div>
+        <div class="summary-stats">
+          <div class="summary-stat">
+            <div class="num" style="color:var(--correct)">${sessionCorrect}</div>
+            <div class="label">正确</div>
+          </div>
+          <div class="summary-stat">
+            <div class="num" style="color:var(--wrong)">${sessionWrong}</div>
+            <div class="label">错误</div>
+          </div>
+          <div class="summary-stat">
+            <div class="num" style="color:var(--text-muted)">${sessionTotal}</div>
+            <div class="label">总计</div>
+          </div>
+        </div>
+        <div class="summary-msg">${msgs[msgIdx]}</div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="startQuiz('${currentBank}')">🔄 再练一遍</button>
+          <button class="btn btn-outline" onclick="showHome()">🏠 返回首页</button>
+        </div>
+      </div>
+    </div>
+  `;
+  el('progressFill').style.width = '100%';
+  el('progressText').textContent = `${sessionTotal}/${sessionTotal}`;
+}
+
+loadQuestions();
+</script>
 </body>
 </html>
