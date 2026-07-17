@@ -80638,6 +80638,1290 @@
         "analysis": "根据《行政复议法》，公民、法人或者其他组织对行政机关作出的行政处罚、行政强制措施等具体行政行为不服的，可以申请行政复议。本案中，市税务局作出了《税务行政处罚决定书》（行政处罚）和冻结存款措施（行政强制措施），两者均属于可申请复议的具体行政行为。因此，乌有所可以对这两项行为一并申请复议。故选项B正确。选项A、C表述不全面。选项D，对规范性文件的审查请求必须附带于对具体行政行为的复议申请中提出，不能单独或直接对文件申请复议。选项E，冻结措施是独立的可复议行政行为，其复议申请不与《税务处理决定书》绑定。",
         "bank": "第四章 税费征收管理"
       }
+    ],
+    "第一二八章": [
+      {
+        "type": "判断题",
+        "question": "各级税务机关只是单纯的业务机关不需要突出政治机关属性。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "国税地税征管体制改革后各级省市县税务局均设立党委履行领导职责。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "环境保护税推出以及资源税改革是税收服务绿色发展的重要举措。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "政府与税收是法律关系，税务机关依法独立执法，任何单位、个人不得干预阻挠。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "二十届四中全会 “十五五” 规划建议中，涉及税务部门工作任务近30项。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "税收在国家治理中承担基础性、支柱性、保障性作用。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "效能税务建设仅关系税务部门内部形象，与纳税人缴费人利益无关。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "以数治税的核心价值是发挥税收大数据及时性高、颗粒度细、穿透性强的优势，推进征管数字化转型。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "基层征管基础短板不会影响税收现代化整体根基，可暂缓补齐。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "《深改方案》明确，深化税收征管改革只需聚焦短期目标，无需考虑“十五五”时期的长远任务。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "税务部门在完善税务监管体系时，应推动向“以数治税”分类精准监管转变，力求对经营主体干扰最小化、监管效能最大化。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "实施税费征管“强基工程”仅依赖技术升级，不涉及业务规则和岗责体系的调整。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "税费征管“强基工程”的目的是推动税费征管工作从较多依靠“人机结合”向更高层级的“机器为主”转变。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "按照工作目标，2026年将全面推行税费征管新模式，并构建系列税务监管新机制。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "《强基方案》提出修订现行税务管理员制度，逐步推行新型“管户+管事”管理方式，以解决执法廉政风险较大等问题。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "税务机关首先是业务机关，基层党组织首要任务是抓好税费收入。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "党小组长“两知道一报告”要求，党员干部思想重大波动、家庭重大变故要及时掌握，苗头性问题向支部书记、纪检委员报告。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "主题党日活动可以组织全体党员外出旅游、发放纪念品，提升参与积极性。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "省级税务局要加强对县级税务局正职人选的审核把关，探索建立考核评价机制。保持县级税务局班子任职稳定，在重大涉税风险有效化解、重大历史遗留问题有效解决、巡视巡察或审计反馈问题有效整改完成前，县级税务局正职及分管领导原则上不作调整。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "把考试录用公务员作为税务系统补充人员的主渠道，坚持招录计划向基层倾斜，每年将80%以上的计划用于招录基层办税服务厅职位。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "某县税务局在干部队伍建设上，坚持“强基先强人”理念，聚焦青年干部、基层所长等重点群体开展专项培育，重点实施数字化能力提升行动，着重培养一批善于获取数据、分析数据、运用数据的人才。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "一体化综合监督体系建设，要求各类监督各自独立开展，不需要互通信息、协同联动。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "“一案双查”只需要追究纳税人税收违法责任，不需要关注税务人员履职情况。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "以案促改侧重于个案问题整改，以案促治侧重完善长效治理机制，二者有机衔接。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "基层党建联系点确定后仅能短期联系，满1年后必须更换联系支部。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "除紧急突发事项外，上级不得通过网络工作群常态化向下布置工作任务，临时阶段性工作群任务结束后应当解散。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      },
+      {
+        "type": "判断题",
+        "question": "容错纠错机制中，对予以容错免责的干部，年度考核、评优评先、职级晋升等事项不受负面影响。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第一二八章"
+      }
+    ],
+    "第四章": [
+      {
+        "type": "判断题",
+        "question": "税务机关在非正常户认定的当月，在办公场所或者通过广播、电视、报纸、期刊、网络等媒体上公告非正常户。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "合伙企业的所得税应采取先税后分的方式进行处理。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "企业在注销登记中提交虚假资料，或者采取其他欺诈手段隐瞒重要事实办理注销登记的，登记机关可以依法作出撤销注销登记等处理。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "依据国家税务总局公告2022年第12号，“两证整合”后设立的个体工商户，未领用发票、无欠税及未办结事项，申请简易注销可免予办理清税证明。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "财产和行为税各税种纳税期限不一致，各税种不能合并申报。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "单位提供电子发票存储服务时，存储发票数据数量可以自行随意设定，不受税务机关限制。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "开具电子发票发生销售折让的，应当按照规定开具红字电子发票。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "罚款金额在 2000 元以下的发票违法行为，可由税务所作出处罚决定。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "向消费者个人零售小额商品，一律必须逐笔开具发票，各省税务局无自主规定权限。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "发票领用、开具、代开发票环节，经办人必须实名办税进行身份验证。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "企业在纳税年度中间终止经营活动，若当期处于免税期间且全年亏损，则无需办理企业所得税年度汇算清缴。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "持有股权、股票、合伙企业财产份额等权益性投资的个人独资企业、合伙企业，可根据经营规模选择核定征收方式计征个人所得税。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "境内上市公司授予个人的股票期权、限制性股票和股权奖励，经向主管税务机关备案，个人可自股票期权行权、限制性股票解禁或取得股权奖励之日起，在不超过36个月的期限内缴纳个人所得税。纳税人在此期间内离职的，应在离职前缴清全部税款。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "纳税人采用监测机构出具的监测数据申报减免环境保护税，应当取得申报当月监测数据，当月无监测数据的，不予减免环境保护税。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "土地使用权出让的契税计税依据为权属转移合同确定的成交价格，包含土地出让金和货币形式的补偿款项，实物配建房屋对应的价款不计入契税计税依据。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "在税收制度和征管手段没有发生较大变化的前提下，同一地区同一时段内税收收入增速明显快于经济增速，表明该地区可能存在漏征漏管。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "用人单位超过规定期限未向人社部门申报缴纳或代扣代缴社会保险费，可能产生加收滞纳金金额高、被行政处罚等后果。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "收入目标管理是一个完整的管理活动，事前、事中、事后都有相应的工作重点。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "影响宏观税负最终形成的三大主要因素是指：经济因素、政策因素、征管因素。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "社会保险费退费业务采取人社或医保部门受理核验，税务部门退还的方式。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "税务人员可以使用私人微信收款码，帮纳税人划转税费资金。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "一般纳税人提供管道运输服务，实际税负超过3%的部分，实行即征即退50%的政策。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "不满足免加收滞纳金的法定条件，采用“先入库、后退还滞纳金”的方式变相免收滞纳金，属于违规操作。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "个人所得税住房贷款利息专项附加扣除，扣除期限最长不得超过240个月。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "非独生子女赡养年满60周岁老人，个税专项附加扣除每人每月最多可以分摊扣除2000元。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "企业办的托儿所自用的房产，免征房产税。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "企业当年未选择享受设备器具一次性税前扣除政策的，以后年度可以追溯享受该政策。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "实行增值税汇总纳税的企业，其分支机构可单独计算销售额占比，自行享受先进制造业增值税加计抵减政策。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "某企业用自产石脑油生产化工产品，其中乙烯类产品产量占石脑油生产全部产品总量的45%，该企业可全额享受石脑油免征消费税优惠。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "个人独资企业投资人取得的经营所得，年应纳税所得额不超过200万元的部分，可减半征收个人所得税。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "纳税人产生并对外销售固体废物的，可将销售量计入综合利用量，申报享受免征环境保护税优惠。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "《欠税公告办法》规定，公告机关按月在行政执法信息公示平台公告欠税情况；省级以上税务机关根据需要可以对部分纳税人欠税情况予以曝光。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "从事生产、经营的纳税人、扣缴义务人有《中华人民共和国税收征收管理法》规定的税收违法行为，拒不接受税务机关处理的，税务机关可以调整其发票额度和发票赋额类别，但不得收缴其发票，影响企业的正常生产经营。‌",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "税收代位权诉讼时效‌适用《民法典》关于民事诉讼的一般规定，即诉讼时效为3年。‌",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "欠税人或者其法定代表人、财务负责人需要出境，未结清税款、滞纳金，又不提供纳税担保的，税务机关可以通知出境管理机关阻止其出境。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "税务机关应当对纳税人欠缴税款情况定期予以公告。特殊情形欠税情况可不公告。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "A"
+        ],
+        "answer_text": "√",
+        "analysis": "",
+        "bank": "第四章"
+      },
+      {
+        "type": "判断题",
+        "question": "纳税人未按照规定期限缴纳税款，逾期不申请行政复议也不向人民法院起诉，税务机关可自履行期限届满之日起1个月内，依法申请人民法院强制执行。",
+        "options": [
+          {
+            "letter": "A",
+            "text": "正确"
+          },
+          {
+            "letter": "B",
+            "text": "错误"
+          }
+        ],
+        "answer": [
+          "B"
+        ],
+        "answer_text": "×",
+        "analysis": "",
+        "bank": "第四章"
+      }
     ]
   }
 }
