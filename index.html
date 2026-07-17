@@ -6,199 +6,89 @@
 <title>税务技能大赛题库练习</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 :root {
-  --blue: #1e40af;
-  --blue-light: #3b82f6;
-  --teal: #0f766e;
-  --teal-light: #14b8a6;
-  --bg: #f0f2f5;
-  --card: #ffffff;
-  --text: #1e293b;
-  --muted: #64748b;
+  --blue: #1e40af; --blue-light: #3b82f6;
+  --teal: #0f766e; --teal-light: #14b8a6;
+  --bg: #f0f2f5; --card: #ffffff;
+  --text: #1e293b; --muted: #64748b;
   --border: #e2e8f0;
-  --correct: #16a34a;
-  --correct-bg: #dcfce7;
-  --wrong: #dc2626;
-  --wrong-bg: #fee2e2;
+  --correct: #16a34a; --correct-bg: #dcfce7;
+  --wrong: #dc2626; --wrong-bg: #fee2e2;
 }
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-}
-
-/* Header */
-.header {
-  background: linear-gradient(135deg, var(--blue), var(--blue-light));
-  color: white;
-  padding: 24px 20px 20px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 16px rgba(30,64,175,0.25);
-}
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+.header { background: linear-gradient(135deg, var(--blue), var(--blue-light)); color: white; padding: 24px 20px 20px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(30,64,175,0.25); }
 .header h1 { font-size: 1.4em; font-weight: 700; margin-bottom: 4px; }
 .header p { font-size: 0.85em; opacity: 0.8; }
-
-/* Nav tabs */
-.tabs {
-  background: white;
-  display: flex;
-  gap: 4px;
-  padding: 0 12px;
-  overflow-x: auto;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 76px;
-  z-index: 99;
-}
-.tab {
-  padding: 10px 14px;
-  font-size: 0.85em;
-  white-space: nowrap;
-  cursor: pointer;
-  border: none;
-  background: none;
-  color: var(--muted);
-  border-bottom: 3px solid transparent;
-  transition: all 0.2s;
-}
+.tabs { background: white; display: flex; gap: 4px; padding: 0 12px; overflow-x: auto; border-bottom: 1px solid var(--border); position: sticky; top: 76px; z-index: 99; }
+.tab { padding: 10px 14px; font-size: 0.85em; white-space: nowrap; cursor: pointer; border: none; background: none; color: var(--muted); border-bottom: 3px solid transparent; transition: all 0.2s; }
 .tab:hover { color: var(--blue); }
 .tab.active { color: var(--blue); border-bottom-color: var(--blue); font-weight: 600; }
-
-/* Progress bar */
-.progress-bar {
-  background: white;
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.85em;
-  color: var(--muted);
-  border-bottom: 1px solid var(--border);
-}
+.progress-bar { background: white; padding: 10px 16px; display: flex; align-items: center; gap: 12px; font-size: 0.85em; color: var(--muted); border-bottom: 1px solid var(--border); }
 .progress-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
 .progress-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--blue-light)); border-radius: 3px; transition: width 0.3s; }
 .progress-text { min-width: 80px; text-align: right; }
-
-/* Stats */
-.stats-bar {
-  background: white;
-  padding: 8px 16px;
-  display: flex;
-  gap: 16px;
-  font-size: 0.82em;
-  color: var(--muted);
-  border-bottom: 1px solid var(--border);
-}
+.stats-bar { background: white; padding: 8px 16px; display: flex; gap: 16px; font-size: 0.82em; color: var(--muted); border-bottom: 1px solid var(--border); }
 .stat { display: flex; align-items: center; gap: 4px; }
 .stat strong { color: var(--blue); font-size: 1.1em; }
-
-/* App */
 .app { max-width: 800px; margin: 0 auto; padding: 20px 16px 100px; }
 
-/* Two group cards (home page) */
-.two-groups {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-.group-card {
-  background: white;
-  border-radius: 20px;
-  padding: 28px 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.25s;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  border: 3px solid transparent;
-}
-.group-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.14);
-}
-.group-card.blue { border-color: #dbeafe; }
-.group-card.blue:hover { border-color: var(--blue); }
-.group-card.teal { border-color: #ccfbf1; }
-.group-card.teal:hover { border-color: var(--teal); }
+/* Type filter */
+.type-filter { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.type-btn { padding: 6px 14px; border-radius: 20px; border: 2px solid var(--border); background: white; font-size: 0.82em; cursor: pointer; color: var(--muted); transition: all 0.2s; font-weight: 500; }
+.type-btn:hover { border-color: var(--blue-light); color: var(--blue); }
+.type-btn.active { background: var(--blue); color: white; border-color: var(--blue); }
+.type-btn.multi.active { background: var(--teal); border-color: var(--teal); }
+.type-btn.judge.active { background: #7c3aed; border-color: #7c3aed; }
 
+/* Two group cards */
+.two-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.group-card { background: white; border-radius: 20px; padding: 28px 20px; text-align: center; cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 3px solid transparent; }
+.group-card.blue { border-color: #dbeafe; }
+.group-card.blue:hover { border-color: var(--blue); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.14); }
+.group-card.teal { border-color: #ccfbf1; }
+.group-card.teal:hover { border-color: var(--teal); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.14); }
 .group-card .icon { font-size: 2.5em; margin-bottom: 12px; }
 .group-card h2 { font-size: 1.1em; margin-bottom: 6px; }
 .group-card .sub { font-size: 0.82em; color: var(--muted); margin-bottom: 10px; }
-.group-card .num {
-  display: inline-block;
-  padding: 4px 14px;
-  border-radius: 20px;
-  font-size: 0.85em;
-  font-weight: 700;
-}
+.group-card .num { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.85em; font-weight: 700; }
 .blue .num { background: #dbeafe; color: var(--blue); }
 .teal .num { background: #ccfbf1; color: var(--teal); }
 
-.group-desc {
-  background: white;
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-.group-desc p { font-size: 0.88em; color: var(--muted); line-height: 1.7; }
+/* Stat pills */
+.stat-pills { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.pill { padding: 3px 10px; border-radius: 20px; font-size: 0.75em; font-weight: 600; }
+.pill-single { background: #dbeafe; color: #1d4ed8; }
+.pill-multi { background: #ccfbf1; color: #0f766e; }
+.pill-judge { background: #ede9fe; color: #6d28d9; }
 
 /* Bank list */
 .bank-list { display: flex; flex-direction: column; gap: 10px; }
-.bank-card {
-  background: white;
-  border-radius: 14px;
-  padding: 18px 20px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  cursor: pointer;
-  transition: all 0.2s;
-  border: 2px solid transparent;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
+.bank-card { background: white; border-radius: 14px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 .bank-card:hover { border-color: var(--blue-light); transform: translateX(4px); }
 .bank-icon { font-size: 1.8em; }
 .bank-info h3 { font-size: 0.95em; font-weight: 600; margin-bottom: 2px; }
 .bank-info .desc { font-size: 0.78em; color: var(--muted); }
-.bank-arrow { margin-left: auto; color: var(--muted); font-size: 1.2em; }
+.bank-stats { margin-left: auto; display: flex; gap: 6px; }
+.bank-arrow { margin-left: 8px; color: var(--muted); font-size: 1.2em; }
 
 /* Question */
-.question-card {
-  background: var(--card);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  margin-bottom: 16px;
-}
-.question-meta { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.question-card { background: var(--card); border-radius: 20px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 16px; }
+.question-meta { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }
 .tag { padding: 3px 10px; border-radius: 20px; font-size: 0.75em; font-weight: 600; }
-.tag-type { background: #dbeafe; color: var(--blue); }
+.tag-single { background: #dbeafe; color: #1d4ed8; }
+.tag-multi { background: #ccfbf1; color: #0f766e; }
+.tag-judge { background: #ede9fe; color: #6d28d9; }
 .tag-bank { background: #f1f5f9; color: var(--muted); }
 .tag-num { background: #fef3c7; color: #92400e; margin-left: auto; }
 .question-text { font-size: 1.02em; line-height: 1.75; color: var(--text); white-space: pre-wrap; margin-bottom: 20px; }
 
 .options { display: flex; flex-direction: column; gap: 10px; }
-.option {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 14px 16px; border: 2px solid var(--border);
-  border-radius: 12px; cursor: pointer; transition: all 0.2s; line-height: 1.6;
-}
+.option { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s; line-height: 1.6; }
 .option:hover:not(.disabled) { border-color: var(--blue-light); background: #eff6ff; }
 .option.correct { border-color: var(--correct); background: var(--correct-bg); }
 .option.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
 .option.disabled { cursor: default; }
-.opt-letter {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: var(--bg); display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 0.85em; flex-shrink: 0; border: 2px solid var(--border); transition: all 0.2s;
-}
+.opt-letter { width: 28px; height: 28px; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; border: 2px solid var(--border); transition: all 0.2s; }
 .option.correct .opt-letter { background: var(--correct); color: white; border-color: var(--correct); }
 .option.wrong .opt-letter { background: var(--wrong); color: white; border-color: var(--wrong); }
 .opt-text { font-size: 0.95em; line-height: 1.6; flex: 1; white-space: pre-wrap; }
@@ -212,7 +102,6 @@ body {
 .answer-title.wrong { color: var(--wrong); }
 .analysis { font-size: 0.88em; line-height: 1.7; color: var(--muted); margin-top: 8px; background: #f8fafc; padding: 12px; border-radius: 8px; white-space: pre-wrap; }
 .analysis-title { font-weight: 600; color: var(--text); margin-bottom: 4px; }
-
 .btn-row { display: flex; gap: 10px; margin-top: 16px; }
 .btn { flex: 1; padding: 12px 20px; border: none; border-radius: 12px; font-size: 0.95em; font-weight: 600; cursor: pointer; transition: all 0.2s; }
 .btn-primary { background: var(--blue); color: white; }
@@ -235,19 +124,10 @@ body {
 .spinner { width: 40px; height: 40px; border: 4px solid var(--border); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Back button */
-.back-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 8px 16px; background: white; border: 1px solid var(--border);
-  border-radius: 20px; font-size: 0.85em; color: var(--muted);
-  cursor: pointer; margin-bottom: 16px;
-}
+.back-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: white; border: 1px solid var(--border); border-radius: 20px; font-size: 0.85em; color: var(--muted); cursor: pointer; margin-bottom: 16px; }
 .back-btn:hover { border-color: var(--blue); color: var(--blue); }
 
-/* Responsive */
-@media (max-width: 480px) {
-  .two-groups { grid-template-columns: 1fr; }
-}
+@media (max-width: 480px) { .two-groups { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -274,14 +154,15 @@ body {
 </div>
 
 <script>
-let questions = {}; // {groupName: {bankName: [q1,q2,...]}}
-let view = 'home';   // 'home' | 'group' | 'quiz'
+let questions = {};
 let currentGroup = null;
 let currentBank = null;
 let currentIndex = 0;
 let sessionCorrect = 0;
 let sessionWrong = 0;
 let sessionTotal = 0;
+let answered = false;
+let currentFilter = 'all'; // 'all' | 'single' | 'multi' | 'judge'
 
 const $ = id => document.getElementById(id);
 
@@ -297,8 +178,14 @@ async function loadQuestions() {
   }
 }
 
+function typeTag(type) {
+  if (type === '单选题') return '<span class="tag tag-single">单选题</span>';
+  if (type === '多选题') return '<span class="tag tag-multi">多选题</span>';
+  if (type === '判断题') return '<span class="tag tag-judge">判断题</span>';
+  return `<span class="tag tag-single">${type}</span>`;
+}
+
 function showHome() {
-  view = 'home';
   const g1 = questions['备考题库'] || {};
   const g2 = questions['税费大赛'] || {};
   const g1Total = Object.values(g1).reduce((s, a) => s + a.length, 0);
@@ -320,10 +207,10 @@ function showHome() {
       </div>
     </div>
     <div class="group-desc">
-      <p>📋 <strong>技能大赛备考题库</strong>：税务公共知识、强基培训、征收管理、纳税服务、税务稽查五大模块，来源两测题库，适合系统性备考训练。</p>
+      <p>📋 <strong>技能大赛备考题库</strong>：税务公共知识、强基培训、征收管理、纳税服务、税务稽查，含单选/多选/判断三种题型。</p>
     </div>
     <div class="group-desc">
-      <p>📖 <strong>税费大赛部分题库</strong>：新时代税务事业、税费政策管理、税费征收管理、税费风险管理等章节专题，适合针对性强化练习。</p>
+      <p>📖 <strong>税费大赛部分题库</strong>：新时代税务事业、税费政策管理、税费征收管理、税费风险管理章节专题。</p>
     </div>
   `;
   $('tabs').style.display = 'none';
@@ -333,7 +220,6 @@ function showHome() {
 
 function showGroup(name) {
   currentGroup = name;
-  view = 'group';
   const banks = questions[name] || {};
   const icons = ['📖', '📗', '📘', '📙', '📓', '📔', '📒'];
   const descs = {
@@ -357,12 +243,21 @@ function showGroup(name) {
   for (const [bank, qs] of Object.entries(banks)) {
     const icon = icons[i % icons.length];
     const desc = descs[bank] || '';
+    // count by type
+    const sc = qs.filter(q => q.type === '单选题').length;
+    const mc = qs.filter(q => q.type === '多选题').length;
+    const jc = qs.filter(q => q.type === '判断题').length;
     html += `
       <div class="bank-card" onclick="startQuiz('${bank}')">
         <div class="bank-icon">${icon}</div>
         <div class="bank-info">
           <h3>${bank}</h3>
           <div class="desc">${desc} · ${qs.length} 题</div>
+        </div>
+        <div class="bank-stats">
+          ${sc > 0 ? `<span class="pill pill-single">单${sc}</span>` : ''}
+          ${mc > 0 ? `<span class="pill pill-multi">多${mc}</span>` : ''}
+          ${jc > 0 ? `<span class="pill pill-judge">判${jc}</span>` : ''}
         </div>
         <div class="bank-arrow">→</div>
       </div>
@@ -383,20 +278,31 @@ function shuffle(arr) {
   return a;
 }
 
-function startQuiz(bank) {
+function startQuiz(bank, filterType) {
   const list = questions[currentGroup]?.[bank];
   if (!list || list.length === 0) { alert('暂无题目'); return; }
   
+  currentFilter = filterType || 'all';
+  
+  // Filter by type
+  let filtered = list;
+  if (currentFilter === 'single') filtered = list.filter(q => q.type === '单选题');
+  else if (currentFilter === 'multi') filtered = list.filter(q => q.type === '多选题');
+  else if (currentFilter === 'judge') filtered = list.filter(q => q.type === '判断题');
+  
+  if (filtered.length === 0) {
+    alert('该题库没有此类型题目'); return;
+  }
+  
   if (!window._shuffled) window._shuffled = {};
-  window._shuffled[bank] = shuffle(list);
+  window._shuffled[bank + '_' + currentFilter] = shuffle(filtered);
   
   currentBank = bank;
   currentIndex = 0;
   sessionCorrect = 0;
   sessionWrong = 0;
-  sessionTotal = list.length;
+  sessionTotal = filtered.length;
   
-  view = 'quiz';
   showTabs();
   $('progressBar').style.display = 'flex';
   $('statsBar').style.display = 'flex';
@@ -414,7 +320,8 @@ function showTabs() {
 }
 
 function updateProgress() {
-  const list = window._shuffled?.[currentBank];
+  const key = currentBank + '_' + currentFilter;
+  const list = window._shuffled?.[key];
   if (!list) return;
   const pct = sessionTotal > 0 ? Math.round((currentIndex / sessionTotal) * 100) : 0;
   $('progressFill').style.width = pct + '%';
@@ -425,10 +332,9 @@ function updateProgress() {
   $('accuracy').textContent = acc + '%';
 }
 
-let answered = false;
-
 function showQuestion() {
-  const list = window._shuffled?.[currentBank];
+  const key = currentBank + '_' + currentFilter;
+  const list = window._shuffled?.[key];
   if (!list || currentIndex >= list.length) { showSummary(); return; }
   answered = false;
   updateProgress();
@@ -441,11 +347,20 @@ function showQuestion() {
     </div>
   `).join('');
   
+  const typeFilterHtml = `
+    <div class="type-filter" style="margin-bottom:14px">
+      <button class="type-btn ${currentFilter==='all'?'active':''}" onclick="jumpFilter('all')">全部</button>
+      <button class="type-btn ${currentFilter==='single'?'active':''}" onclick="jumpFilter('single')">单选题</button>
+      <button class="type-btn multi ${currentFilter==='multi'?'active':''}" onclick="jumpFilter('multi')">多选题</button>
+      <button class="type-btn judge ${currentFilter==='judge'?'active':''}" onclick="jumpFilter('judge')">判断题</button>
+    </div>`;
+  
   $('app').innerHTML = `
     <button class="back-btn" onclick="showGroup(currentGroup)">← ${currentGroup}</button>
+    ${typeFilterHtml}
     <div class="question-card">
       <div class="question-meta">
-        <span class="tag tag-type">${q.type}</span>
+        ${typeTag(q.type)}
         <span class="tag tag-bank">${q.bank}</span>
         <span class="tag tag-num">第 ${currentIndex+1} / ${sessionTotal} 题</span>
       </div>
@@ -460,11 +375,25 @@ function showQuestion() {
   `;
 }
 
+function jumpFilter(type) {
+  if (answered) {
+    // save current progress before switching
+    sessionCorrect += 0; // just go
+  }
+  currentIndex = 0;
+  sessionCorrect = 0;
+  sessionWrong = 0;
+  startQuiz(currentBank, type);
+}
+
 function selectOption(letter) {
   if (answered) return;
   answered = true;
-  const list = window._shuffled?.[currentBank];
+  const key = currentBank + '_' + currentFilter;
+  const list = window._shuffled?.[key];
   const q = list[currentIndex];
+  
+  // 判断题：检查字母是否在答案中（支持多选）
   const isCorrect = q.answer.includes(letter);
   if (isCorrect) sessionCorrect++; else sessionWrong++;
   
@@ -475,11 +404,14 @@ function selectOption(letter) {
   });
   
   const box = $('answerBox');
+  const multiHint = q.type === '多选题' ? `<div style="font-size:0.82em;color:#0f766e;margin-bottom:6px">💡 多选题：可能有多个正确答案</div>` : '';
+  
   box.className = 'answer-box show ' + (isCorrect ? 'correct-ans' : 'wrong-ans');
   box.innerHTML = `
     <div class="answer-title ${isCorrect ? 'correct' : 'wrong'}">
       ${isCorrect ? '✅ 正确！' : '❌ 错误'}
     </div>
+    ${multiHint}
     ${!isCorrect ? `<div style="font-size:0.88em;color:var(--muted)">正确答案：<strong>${q.answer.join('、')}</strong></div>` : ''}
     ${q.analysis ? `<div class="analysis"><div class="analysis-title">📝 解析</div>${q.analysis}</div>` : ''}
   `;
@@ -489,7 +421,8 @@ function selectOption(letter) {
 
 function showAnswer() {
   if (answered) return;
-  const list = window._shuffled?.[currentBank];
+  const key = currentBank + '_' + currentFilter;
+  const list = window._shuffled?.[key];
   const q = list[currentIndex];
   answered = true;
   document.querySelectorAll('.option').forEach(el => {
@@ -497,9 +430,11 @@ function showAnswer() {
     if (q.answer.includes(el.dataset.letter)) el.classList.add('correct');
   });
   const box = $('answerBox');
+  const multiHint = q.type === '多选题' ? `<div style="font-size:0.82em;color:#0f766e;margin-bottom:6px">💡 多选题：可能有多个正确答案</div>` : '';
   box.className = 'answer-box show correct-ans';
   box.innerHTML = `
     <div class="answer-title correct">答案：${q.answer.join('、')}</div>
+    ${multiHint}
     ${q.analysis ? `<div class="analysis"><div class="analysis-title">📝 解析</div>${q.analysis}</div>` : ''}
   `;
   $('nextBtn').disabled = false;
@@ -536,7 +471,7 @@ function showSummary() {
       </div>
       <div class="summary-msg">${msgs[idx]}</div>
       <div class="btn-row">
-        <button class="btn btn-primary" onclick="startQuiz('${currentBank}')">🔄 再练一遍</button>
+        <button class="btn btn-primary" onclick="startQuiz('${currentBank}','${currentFilter}')">🔄 再练一遍</button>
         <button class="btn btn-outline" onclick="showGroup(currentGroup)">← 返回题库</button>
       </div>
     </div>
