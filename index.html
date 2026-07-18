@@ -162,15 +162,52 @@ let selectedOptions = []; // 多选题已选选项
 
 const $ = id => document.getElementById(id);
 
+async function fetchWithTimeout(url, timeoutMs) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    const r = await fetch(url, { signal: ctrl.signal });
+    return r;
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+async function tryLoadSources() {
+  // 多源加载：CDN 优先（国内快），失败回退 GitHub Pages
+  const ts = Date.now();
+  const sources = [
+    { url: 'https://cdn.jsdelivr.net/gh/supertaocn/wps-nav@main/questions.json?t=' + ts, name: 'CDN', timeout: 15000 },
+    { url: 'https://fastly.jsdelivr.net/gh/supertaocn/wps-nav@main/questions.json?t=' + ts, name: 'Fastly', timeout: 15000 },
+    { url: 'questions.json?t=' + ts, name: 'GitHub Pages', timeout: 30000 },
+  ];
+  let lastErr = null;
+  for (const src of sources) {
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        $('app').innerHTML = '<div class="loading"><div class="spinner"></div>加载题库中（' + src.name + ' #' + attempt + '）...</div>';
+        const r = await fetchWithTimeout(src.url, src.timeout);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const data = await r.json();
+        console.log('题库加载成功:', src.name, 'attempt', attempt);
+        return data;
+      } catch(e) {
+        lastErr = e;
+        console.warn(src.name + ' attempt ' + attempt + ' 失败:', e.message);
+      }
+    }
+  }
+  throw lastErr || new Error('所有源均失败');
+}
+
 async function loadQuestions() {
   try {
-    const r = await fetch('questions.json?t=' + Date.now());
-    questions = await r.json();
+    questions = await tryLoadSources();
     const total = Object.values(questions).reduce((s, g) => s + Object.values(g).reduce((a, qs) => a + qs.length, 0), 0);
     $('totalCount').textContent = total;
     showHome();
   } catch(e) {
-    $('app').innerHTML = '<div class="loading">加载失败: ' + e.message + '<br><button class="btn btn-primary" style="margin-top:16px" onclick="loadQuestions()">重试</button></div>';
+    $('app').innerHTML = '<div class="loading" style="color:#b91c1c">⚠️ 加载失败：' + e.message + '<br><div style="margin-top:12px;font-size:14px;color:#666">网络不稳定，可尝试：<br>1. 切换 WiFi/4G 后重试<br>2. 使用 VPN<br>3. 直接访问备用地址</div><br><a href="https://cdn.jsdelivr.net/gh/supertaocn/wps-nav@main/index.html" style="color:#1e40af" target="_blank">备用地址（jsDelivr CDN）</a><br><button class="btn btn-primary" style="margin-top:16px" onclick="loadQuestions()">重新加载</button></div>';
   }
 }
 
