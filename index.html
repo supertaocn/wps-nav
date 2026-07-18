@@ -38,6 +38,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC"
 .type-btn.active { background: var(--blue); color: white; border-color: var(--blue); }
 .type-btn.multi.active { background: var(--teal); border-color: var(--teal); }
 .type-btn.judge.active { background: #7c3aed; border-color: #7c3aed; }
+.type-btn.subj.active { background: #db2777; border-color: #db2777; }
 
 .two-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
 .group-card { background: white; border-radius: 20px; padding: 28px 20px; text-align: center; cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 3px solid transparent; }
@@ -57,6 +58,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC"
 .pill-single { background: #dbeafe; color: #1d4ed8; }
 .pill-multi { background: #ccfbf1; color: #0f766e; }
 .pill-judge { background: #ede9fe; color: #6d28d9; }
+.pill-subj { background: #fce7f3; color: #be185d; }
 
 .bank-list { display: flex; flex-direction: column; gap: 10px; }
 .bank-card { background: white; border-radius: 14px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
@@ -73,6 +75,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC"
 .tag-single { background: #dbeafe; color: #1d4ed8; }
 .tag-multi { background: #ccfbf1; color: #0f766e; }
 .tag-judge { background: #ede9fe; color: #6d28d9; }
+.tag-subj { background: #fce7f3; color: #be185d; }
 .tag-bank { background: #f1f5f9; color: var(--muted); }
 .tag-num { background: #fef3c7; color: #92400e; margin-left: auto; }
 .question-text { font-size: 1.02em; line-height: 1.75; color: var(--text); white-space: pre-wrap; margin-bottom: 20px; }
@@ -215,6 +218,7 @@ function typeTag(type) {
   if (type === '单选题') return '<span class="tag tag-single">单选题</span>';
   if (type === '多选题') return '<span class="tag tag-multi">多选题</span>';
   if (type === '判断题') return '<span class="tag tag-judge">判断题</span>';
+  if (type === '主观题') return '<span class="tag tag-subj">主观题</span>';
   return '<span class="tag tag-single">' + type + '</span>';
 }
 
@@ -272,6 +276,7 @@ function showGroup(name) {
     const sc = qs.filter(q => q.type === '单选题').length;
     const mc = qs.filter(q => q.type === '多选题').length;
     const jc = qs.filter(q => q.type === '判断题').length;
+    const sj = qs.filter(q => q.type === '主观题').length;
     html +=
       '<div class="bank-card" onclick="startQuiz(\'' + bank.replace(/'/g, "\\'") + '\')">' +
         '<div class="bank-icon">' + icon + '</div>' +
@@ -280,6 +285,7 @@ function showGroup(name) {
           (sc > 0 ? '<span class="pill pill-single">单' + sc + '</span>' : '') +
           (mc > 0 ? '<span class="pill pill-multi">多' + mc + '</span>' : '') +
           (jc > 0 ? '<span class="pill pill-judge">判' + jc + '</span>' : '') +
+          (sj > 0 ? '<span class="pill pill-subj">主' + sj + '</span>' : '') +
         '</div>' +
         '<div class="bank-arrow">→</div>' +
       '</div>';
@@ -309,6 +315,7 @@ function startQuiz(bank, filterType) {
   if (currentFilter === 'single') filtered = list.filter(q => q.type === '单选题');
   else if (currentFilter === 'multi') filtered = list.filter(q => q.type === '多选题');
   else if (currentFilter === 'judge') filtered = list.filter(q => q.type === '判断题');
+  else if (currentFilter === 'subjective') filtered = list.filter(q => q.type === '主观题');
 
   if (filtered.length === 0) { alert('该题库没有此类型题目'); return; }
 
@@ -360,6 +367,7 @@ function showQuestion() {
   const q = list[currentIndex];
 
   const isMulti = q.type === '多选题';
+  const isSubjective = q.type === '主观题';
   const optsHtml = q.options.map(function(o) {
     return '<div class="option" data-letter="' + o.letter + '" onclick="selectOption(\'' + o.letter + '\')">' +
       '<div class="opt-letter">' + o.letter + '</div>' +
@@ -367,13 +375,39 @@ function showQuestion() {
     '</div>';
   }).join('');
 
+  // 题型筛选按钮（含主观题，仅当题库中有主观题时显示）
+  const hasSubj = list.some(function(x){return x.type==='主观题';}) || currentFilter === 'subjective';
   const typeFilterHtml =
     '<div class="type-filter" style="margin-bottom:14px">' +
       '<button class="type-btn ' + (currentFilter==='all'?'active':'') + '" onclick="jumpFilter(\'all\')">全部</button>' +
       '<button class="type-btn ' + (currentFilter==='single'?'active':'') + '" onclick="jumpFilter(\'single\')">单选题</button>' +
       '<button class="type-btn multi ' + (currentFilter==='multi'?'active':'') + '" onclick="jumpFilter(\'multi\')">多选题</button>' +
       '<button class="type-btn judge ' + (currentFilter==='judge'?'active':'') + '" onclick="jumpFilter(\'judge\')">判断题</button>' +
+      (hasSubj ? '<button class="type-btn subj ' + (currentFilter==='subjective'?'active':'') + '" onclick="jumpFilter(\'subjective\')">主观题</button>' : '') +
     '</div>';
+
+  // 主观题特殊展示：无选项，显示"显示参考答案"按钮
+  if (isSubjective) {
+    $('app').innerHTML =
+      '<button class="back-btn" onclick="showGroup(currentGroup)">← ' + currentGroup + '</button>' +
+      typeFilterHtml +
+      '<div class="question-card">' +
+        '<div class="question-meta">' +
+          typeTag(q.type) +
+          '<span class="tag tag-bank">' + escapeHtml(q.bank || currentBank) + '</span>' +
+          '<span class="tag tag-num">第 ' + (currentIndex+1) + ' / ' + sessionTotal + ' 题</span>' +
+        '</div>' +
+        '<div class="question-text">' + escapeHtml(q.question) + '</div>' +
+        '<div class="answer-box" id="answerBox"></div>' +
+        '<div class="btn-row" id="btnRow">' +
+          '<button class="btn btn-primary" id="showAnsBtn" onclick="showSubjectiveAnswer()">📖 显示参考答案</button>' +
+          '<button class="btn btn-outline" onclick="markSubjective(true)">✓ 我答对了</button>' +
+          '<button class="btn btn-outline" onclick="markSubjective(false)">✗ 我答错了</button>' +
+          '<button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>下一题 →</button>' +
+        '</div>' +
+      '</div>';
+    return;
+  }
 
   $('app').innerHTML =
     '<button class="back-btn" onclick="showGroup(currentGroup)">← ' + currentGroup + '</button>' +
@@ -402,6 +436,31 @@ function showQuestion() {
     var opts = $('options');
     opts.parentNode.insertBefore(hint, opts);
   }
+}
+
+function showSubjectiveAnswer() {
+  const key = currentBank + '_' + currentFilter;
+  const list = window._shuffled && window._shuffled[key];
+  const q = list[currentIndex];
+  const box = $('answerBox');
+  const ans = q.analysis || '（暂无参考答案）';
+  box.innerHTML = '<div class="answer-title">📖 参考答案</div><div class="answer-text">' + escapeHtml(ans) + '</div>';
+  box.style.display = 'block';
+  // 启用下一题按钮
+  const nextBtn = $('nextBtn');
+  if (nextBtn) nextBtn.disabled = false;
+  // 隐藏"显示参考答案"按钮
+  const showAnsBtn = $('showAnsBtn');
+  if (showAnsBtn) showAnsBtn.style.display = 'none';
+}
+
+function markSubjective(correct) {
+  if (answered) return;
+  answered = true;
+  if (correct) sessionCorrect++; else sessionWrong++;
+  // 显示参考答案
+  showSubjectiveAnswer();
+  updateProgress();
 }
 
 function escapeHtml(text) {
