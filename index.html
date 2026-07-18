@@ -177,12 +177,13 @@ async function fetchWithTimeout(url, timeoutMs) {
 }
 
 async function tryLoadSources() {
-  // 多源加载：CDN 优先（国内快），失败回退 GitHub Pages
+  // 多源加载：Gitee Pages 同源优先（国内最稳定），失败回退 CDN，最后 GitHub Pages
   const ts = Date.now();
   const sources = [
-    { url: 'https://cdn.jsdelivr.net/gh/supertaocn/wps-nav@main/questions.json?t=' + ts, name: 'CDN', timeout: 15000 },
+    { url: 'questions.json?t=' + ts, name: '同源', timeout: 15000 },
+    { url: 'https://cdn.jsdelivr.net/gh/supertaocn/wps-nav@main/questions.json?t=' + ts, name: 'jsDelivr', timeout: 15000 },
     { url: 'https://fastly.jsdelivr.net/gh/supertaocn/wps-nav@main/questions.json?t=' + ts, name: 'Fastly', timeout: 15000 },
-    { url: 'questions.json?t=' + ts, name: 'GitHub Pages', timeout: 30000 },
+    { url: 'https://supertaocn.github.io/wps-nav/questions.json?t=' + ts, name: 'GitHub Pages', timeout: 30000 },
   ];
   let lastErr = null;
   for (const src of sources) {
@@ -210,7 +211,7 @@ async function loadQuestions() {
     $('totalCount').textContent = total;
     showHome();
   } catch(e) {
-    $('app').innerHTML = '<div class="loading" style="color:#b91c1c">⚠️ 加载失败：' + e.message + '<br><div style="margin-top:12px;font-size:14px;color:#666">网络不稳定，可尝试：<br>1. 切换 WiFi/4G 后重试<br>2. 使用 VPN<br>3. 直接访问备用地址</div><br><a href="https://cdn.jsdelivr.net/gh/supertaocn/wps-nav@main/index.html" style="color:#1e40af" target="_blank">备用地址（jsDelivr CDN）</a><br><button class="btn btn-primary" style="margin-top:16px" onclick="loadQuestions()">重新加载</button></div>';
+    $('app').innerHTML = '<div class="loading" style="color:#b91c1c">⚠️ 加载失败：' + e.message + '<br><div style="margin-top:12px;font-size:14px;color:#666">网络不稳定，可尝试：<br>1. 切换 WiFi/4G 后重试<br>2. 使用 VPN<br>3. 直接访问备用地址</div><br><a href="https://supertaocn.gitee.io/wps-nav/" style="color:#1e40af" target="_blank">备用地址（Gitee Pages）</a><br><a href="https://cdn.jsdelivr.net/gh/supertaocn/wps-nav@main/index.html" style="color:#1e40af;margin-top:8px;display:inline-block" target="_blank">备用地址（jsDelivr CDN）</a><br><button class="btn btn-primary" style="margin-top:16px" onclick="loadQuestions()">重新加载</button></div>';
   }
 }
 
